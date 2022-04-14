@@ -29,9 +29,22 @@ export function TaskList() {
     setNewTaskTitle("");
   }
 
-  function handleToggleTaskCompletion(id: number) {}
+  function handleToggleTaskCompletion(id: number) {
+    const newTasks = tasks.map((task) =>
+      task.id === id
+        ? {
+            ...task,
+            isComplete: true,
+          }
+        : task
+    );
+    setTasks(newTasks);
+  }
 
-  function handleRemoveTask(id: number) {}
+  function handleRemoveTask(id: number) {
+    const newTasks = tasks.filter((task) => task.id !== id);
+    setTasks(newTasks);
+  }
 
   return (
     <section className="task-list container">
