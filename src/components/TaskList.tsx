@@ -17,6 +17,7 @@ export function TaskList() {
 
   function handleCreateNewTask() {
     const id = newId + 1;
+    if (!newTaskTitle) return;
     const task: Task = {
       id,
       title: newTaskTitle,
